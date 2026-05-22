@@ -1,6 +1,14 @@
 import { NavLink } from "react-router-dom"
 
+
+import { useContext } from "react";
+import { BudgetContext} from "../contexts/BudgetContext";
+
+
+
 export default function AppHeader() {
+
+const { budgetMode, setBudgetMode } = useContext(BudgetContext);
 
     return (
         <>
@@ -22,6 +30,10 @@ export default function AppHeader() {
                                     <NavLink to="/prodotti">Prodotti</NavLink>
                                 </li>
                             </ul>
+                        </div>
+                        <div className="d-flex gap-3">
+                            <input type="checkbox" className="btn-check" id="btn-check-outlined" checked={budgetMode} onChange={(e) => setBudgetMode(e.target.checked)} />
+                                <label className="btn btn-outline-light" htmlFor="btn-check-outlined">Budget Mode</label>
                         </div>
                     </div>
                 </nav>
