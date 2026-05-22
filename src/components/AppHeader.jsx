@@ -33,7 +33,7 @@ const { budgetMode, setBudgetMode } = useContext(BudgetContext);
                         </div>
                         <div className="d-flex gap-3">
                             <input type="checkbox" className="btn-check" id="btn-check-outlined" checked={budgetMode} onChange={(e) => setBudgetMode(e.target.checked)} />
-                                <label className="btn btn-outline-light" htmlFor="btn-check-outlined">Budget Mode</label>
+                                <label className="btn btn-outline-light" htmlFor="btn-check-outlined">{budgetMode ? "Disattiva" : "Attiva"} Modalità Budget</label>
                         </div>
                     </div>
                 </nav>
