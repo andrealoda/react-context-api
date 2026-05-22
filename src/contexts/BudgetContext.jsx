@@ -6,6 +6,8 @@ export default function BudgetModeProvider({ children }) {
 
   const [budgetMode, setBudgetMode] = useState(false);
 
+  // BONUS: 
+
   return (
 
     <BudgetContext.Provider value={{ budgetMode, setBudgetMode }}>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { BouncyArc } from 'ldrs/react';
 
 
 export default function ChiSiamo() {
@@ -8,15 +9,28 @@ export default function ChiSiamo() {
 
     const [members, setMembers] = useState([])
 
-    useEffect(() => {
 
-        fetch(chiSiamoApi)
-            .then(r => r.json())
-            .then(data => {
-                // console.log(data);
-                setMembers(data.cards);
-            })
+
+    useEffect(() => {
+        setMembers([]);
+        setTimeout(() => {
+            fetch(chiSiamoApi)
+                .then(res => res.json())
+                .then(data => {setMembers(data.cards)})
+        }, 1000);
     }, [])
+
+    if (members.length === 0) {
+        return (
+            <div className="d-flex justify-content-center align-items-center vh-100">
+                <div className="container-loader">
+                    <div className="cube"></div>
+                </div>
+            </div>
+        );
+    }
+
+
 
 
 

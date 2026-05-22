@@ -15,8 +15,7 @@ export default function ProductPage() {
             fetch(api_url)
                 .then(res => res.json())
                 .then(data => setProduct(data))
-                .catch(err => console.error(err))
-        }, 1500); // 1.5 secondi di ritardo
+        }, 1500);
     }, [id])
 
     if (!product.image) {

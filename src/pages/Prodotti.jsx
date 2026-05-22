@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AppSidebar from "../components/AppSidebar"
+import { BouncyArc } from 'ldrs/react';
 
 import { BudgetContext } from "../contexts/BudgetContext";
 
@@ -16,15 +17,26 @@ export default function Prodotti() {
 
     useEffect(() => {
 
-        // console.log('component mounted');
-
+        setProducts([]);
+        setTimeout(() => {
         fetch(storeApi)
             .then(r => r.json())
             .then(data => {
                 // console.log(data);
                 setProducts(data);
             })
+        }, 1000)
     }, [])
+
+        if (products.length === 0) {
+        return (
+            <div className="d-flex justify-content-center align-items-center vh-100">
+                <div className="container-loader">
+                    <div className="cube"></div>
+                </div>
+            </div>
+        );
+    }
 
     const budgetProducts = budgetMode ? products.filter(product => product.price <= 30) : products;
 
