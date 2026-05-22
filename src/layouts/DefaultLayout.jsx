@@ -3,23 +3,23 @@ import AppFooter from "../components/AppFooter";
 import AppHeader from "../components/AppHeader";
 
 
-export default function DefaultLayouts() {
+export default function DefaultLayout() {
 
-    return (
-        <>
-    <div className="d-flex flex-column min-vh-100">
+  return (
+    <>
+      <div className="d-flex flex-column min-vh-100">
 
-      <AppHeader />
+        <AppHeader />
 
-      <main className="flex-fill">
-        <Outlet />
-      </main>
+        <main className="flex-fill">
+          <Outlet />
+        </main>
 
-      <AppFooter />
+        <AppFooter />
 
-    </div>
-        </>
+      </div>
+    </>
 
 
-    )
+  )
 }

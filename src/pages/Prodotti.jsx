@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AppSidebar from "../components/AppSidebar"
+
+import { BudgetContext } from "../contexts/BudgetContext";
 
 
 export default function Prodotti() {
 
+    const { budgetMode } = useContext(BudgetContext);
 
     const storeApi = "https://fakestoreapi.com/products"
     const [products, setProducts] = useState([])
@@ -23,7 +26,9 @@ export default function Prodotti() {
             })
     }, [])
 
-    const filteredProducts = activeCategories === "All" ? products : products.filter((product) => product.category === activeCategories);
+    const budgetProducts = budgetMode ? products.filter(product => product.price <= 30) : products;
+
+    const filteredProducts = activeCategories === "All" ? budgetProducts : budgetProducts.filter((product) => product.category === activeCategories);
 
     return (
 
