@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 
 
 import { useContext } from "react";
@@ -10,9 +10,12 @@ export default function AppHeader() {
 
 const { budgetMode, setBudgetMode } = useContext(BudgetContext);
 
+const location = useLocation();
+const showBudgetToggle = location.pathname === "/prodotti";
+
     return (
         <>
-            <header className="sticky-top my-3 mx-3">
+            <header className="fixed-top my-3 mx-3">
                 <nav className="navbar navbar-expand-lg mb-2 glass-card">
                     <div className="container-fluid">
                         <a className="btn navbar-brand" href="/">
@@ -31,10 +34,12 @@ const { budgetMode, setBudgetMode } = useContext(BudgetContext);
                                 </li>
                             </ul>
                         </div>
+
+                        {showBudgetToggle && (
                         <div className="d-flex gap-3">
                             <input type="checkbox" className="btn-check" id="btn-check-outlined" checked={budgetMode} onChange={(e) => setBudgetMode(e.target.checked)} />
                                 <label className="btn btn-outline-light" htmlFor="btn-check-outlined">{budgetMode ? "Disattiva" : "Attiva"} Modalità Budget</label>
-                        </div>
+                        </div>)}
                     </div>
                 </nav>
             </header>

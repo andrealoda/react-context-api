@@ -28,7 +28,7 @@ export default function ChiSiamo() {
 
             <div className="p-1 main-wrapper">
                 <div className="container-fluid py-1">
-                    <h1 className="display-5 fw-bold text-white text-center mb-3">Il NOSTRO TEAM, SEMPRE AL TUO SERVIZIO.</h1>
+                    <h1 className="display-5 fw-bold text-white text-center mb-3">IL NOSTRO TEAM, SEMPRE AL TUO SERVIZIO.</h1>
 
                     <div className="row d-flex justify-content-center gap-3 left">
 
