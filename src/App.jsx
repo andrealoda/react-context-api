@@ -5,29 +5,31 @@ import ChiSiamo from "./pages/ChiSiamo"
 import Prodotti from "./pages/Prodotti"
 import ProductPage from "./pages/ProductPage"
 import QuattroZeroQuattro from "./pages/QuattroZeroQuattro"
+import BudgetModeProvider from "./contexts/BudgetContext"
 
 
 function App() {
 
   return (
     <>
+      <BudgetModeProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<DefaultLayout />}>
 
-      <BrowserRouter>
-        <Routes>
-          <Route element={<DefaultLayout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/chi-siamo" element={<ChiSiamo />} />
+              <Route path="/prodotti" element={<Prodotti />} />
+              <Route path="/prodotti/:id" element={<ProductPage />} />
 
-            <Route path="/" element={<HomePage />} />
-            <Route path="/chi-siamo" element={<ChiSiamo />} />
-            <Route path="/prodotti" element={<Prodotti />} />
-            <Route path="/prodotti/:id" element={<ProductPage />} />
+            </Route>
+            <Route element={<DefaultLayout />}>
+              <Route path="*" element={<QuattroZeroQuattro />} />
+            </Route>
 
-          </Route>
-          <Route element={<DefaultLayout />}>
-            <Route path="*" element={<QuattroZeroQuattro />} />
-          </Route>
-
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+      </BudgetModeProvider>
 
     </>
   )
