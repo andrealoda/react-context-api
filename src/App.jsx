@@ -5,7 +5,7 @@ import ChiSiamo from "./pages/ChiSiamo"
 import Prodotti from "./pages/Prodotti"
 import ProductPage from "./pages/ProductPage"
 import QuattroZeroQuattro from "./pages/QuattroZeroQuattro"
-import BudgetModeProvider from "./contexts/BudgetContext"
+import { BudgetModeProvider } from "./contexts/BudgetContext"
 
 
 function App() {

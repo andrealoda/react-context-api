@@ -1,14 +1,13 @@
 import { NavLink, useLocation } from "react-router-dom"
 
 
-import { useContext } from "react";
-import { BudgetContext} from "../contexts/BudgetContext";
+import {useBudget} from "../contexts/BudgetContext";
 
 
 
 export default function AppHeader() {
 
-const { budgetMode, setBudgetMode } = useContext(BudgetContext);
+const { budgetMode, setBudgetMode } = useBudget();
 
 const location = useLocation();
 const showBudgetToggle = location.pathname === "/prodotti";

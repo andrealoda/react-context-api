@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import AppSidebar from "../components/AppSidebar"
 import { BouncyArc } from 'ldrs/react';
 
-import { BudgetContext } from "../contexts/BudgetContext";
+import { useBudget } from "../contexts/BudgetContext";
 
 
 export default function Prodotti() {
 
-    const { budgetMode } = useContext(BudgetContext);
+    const { budgetMode } = useBudget();
 
     const storeApi = "https://fakestoreapi.com/products"
     const [products, setProducts] = useState([])

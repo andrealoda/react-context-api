@@ -1,12 +1,12 @@
-import  { useState, createContext } from "react";
+import { useState, createContext, useContext } from "react";
 
-export const BudgetContext = createContext();
+const BudgetContext = createContext();
 
-export default function BudgetModeProvider({ children }) {
+function BudgetModeProvider({ children }) {
 
   const [budgetMode, setBudgetMode] = useState(false);
 
-  // BONUS: 
+
 
   return (
 
@@ -16,3 +16,11 @@ export default function BudgetModeProvider({ children }) {
 
   );
 }
+
+
+function useBudget() {
+  const context = useContext(BudgetContext);
+  return context;
+}
+
+export { BudgetModeProvider, useBudget };
