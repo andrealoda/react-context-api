@@ -38,7 +38,7 @@ export default function Prodotti() {
         );
     }
 
-    const budgetProducts = budgetMode ? products.filter(product => product.price <= 30) : products;
+    const budgetProducts = budgetMode ? products.filter(product => product.price <= budgetMode) : products;
 
     const filteredProducts = activeCategories === "All" ? budgetProducts : budgetProducts.filter((product) => product.category === activeCategories);
 

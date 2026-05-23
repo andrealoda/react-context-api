@@ -1,16 +1,15 @@
 import { NavLink, useLocation } from "react-router-dom"
 
-
-import {useBudget} from "../contexts/BudgetContext";
+import { useBudget } from "../contexts/BudgetContext";
 
 
 
 export default function AppHeader() {
 
-const { budgetMode, setBudgetMode } = useBudget();
+    const { budgetMode, setBudgetMode } = useBudget();
 
-const location = useLocation();
-const showBudgetToggle = location.pathname === "/prodotti";
+    const location = useLocation();
+    const showBudgetToggle = location.pathname === "/prodotti";
 
     return (
         <>
@@ -35,10 +34,10 @@ const showBudgetToggle = location.pathname === "/prodotti";
                         </div>
 
                         {showBudgetToggle && (
-                        <div className="d-flex gap-3">
-                            <input type="checkbox" className="btn-check" id="btn-check-outlined" checked={budgetMode} onChange={(e) => setBudgetMode(e.target.checked)} />
-                                <label className="btn btn-outline-light" htmlFor="btn-check-outlined">{budgetMode ? "Disattiva" : "Attiva"} Modalità Budget</label>
-                        </div>)}
+                            <div className="d-flex gap-3">
+                                <label className="btn btn-outline-dark" htmlFor="btn-check-outlined">Set Your Budget</label>
+                                <input type="number" className="form-control" id="btn-check-outlined" value={budgetMode} onChange={(e) => setBudgetMode(parseFloat(e.target.value))} placeholder="Enter budget" />
+                            </div>)}
                     </div>
                 </nav>
             </header>

@@ -4,7 +4,7 @@ const BudgetContext = createContext();
 
 function BudgetModeProvider({ children }) {
 
-  const [budgetMode, setBudgetMode] = useState(false);
+  const [budgetMode, setBudgetMode] = useState(null);
 
 
 
