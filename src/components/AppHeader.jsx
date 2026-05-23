@@ -34,8 +34,8 @@ export default function AppHeader() {
                         </div>
 
                         {showBudgetToggle && (
-                            <div className="d-flex gap-3">
-                                <label className=" btn-outline-dark" htmlFor="btn-check-outlined">Set Your Budget</label>
+                            <div className="d-flex gap-3 align-items-center">
+                                <label className=" btn-outline-dark" htmlFor="btn-check-outlined">What’s your budget?</label>
                                 <input type="number" id="btn-check-outlined" value={budgetMode} onChange={(e) => setBudgetMode(parseFloat(e.target.value))} placeholder="Enter budget" />
                             </div>)}
                     </div>
